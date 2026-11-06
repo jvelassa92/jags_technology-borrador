@@ -1,0 +1,386 @@
+/* =====================================================
+   JAGS TECHNOLOGY - Hoja de estilos
+   Se carga despues de Bootstrap 4.0 para personalizarlo.
+   Paleta: azul noche #020613, azul corporativo #1957A1, azul electrico #3190DD
+   Tipografia: sans-serif (Helvetica / Arial)
+   ===================================================== */
+
+:root {
+  --noche: #020613;
+  --corp: #1957A1;
+  --electrico: #3190DD;
+  --texto: #1c2430;
+  --gris: #5b6675;
+  --claro: #f2f6fb;
+  --borde: #d9e2ee;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--texto);
+  background: #fff;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--noche);
+  letter-spacing: -0.2px;
+}
+
+a { color: var(--corp); }
+a:hover { color: var(--electrico); }
+
+:focus-visible { outline: 3px solid var(--electrico); outline-offset: 2px; }
+
+/* ---------- Barra de navegacion ---------- */
+.navbar-jags {
+  background: #fff;
+  border-bottom: 1px solid var(--borde);
+  padding-top: .4rem;
+  padding-bottom: .4rem;
+}
+
+/* Logo: el JPEG trae margenes blancos, por eso se recorta con una caja.
+   La proporcion se mantiene si cambias solo el ancho (width). */
+.logo-crop { position: relative; display: block; width: 210px; overflow: hidden; }
+.logo-crop::before { content: ""; display: block; padding-top: 36.2%; }
+.logo-crop img {
+  position: absolute;
+  width: 141%;
+  max-width: none;
+  height: auto;
+  left: -23.3%;
+  top: -53.9%;
+}
+.logo-footer { width: 260px; border-radius: .4rem; margin-bottom: 1rem; }
+
+.navbar-jags .nav-link {
+  color: var(--noche);
+  font-weight: 600;
+  padding: .6rem .9rem;
+}
+.navbar-jags .nav-link:hover { color: var(--electrico); }
+.navbar-jags .nav-link.active { color: var(--corp); box-shadow: inset 0 -3px 0 var(--electrico); }
+
+/* ---------- Botones ---------- */
+.btn { border-radius: .35rem; font-weight: 600; }
+.btn-lg { padding: .8rem 1.4rem; }
+
+.btn-jags {
+  background: var(--corp);
+  border-color: var(--corp);
+  color: #fff;
+}
+.btn-jags:hover, .btn-jags:focus {
+  background: var(--electrico);
+  border-color: var(--electrico);
+  color: #fff;
+}
+
+.btn-outline-jags {
+  background: transparent;
+  border: 2px solid var(--corp);
+  color: var(--corp);
+}
+.btn-outline-jags:hover { background: var(--corp); color: #fff; }
+
+.btn-code { background: transparent; color: inherit; font-size: .85em; }
+
+.link-jags { font-weight: 600; text-decoration: none; }
+.link-jags:hover { text-decoration: underline; }
+
+/* ---------- Portada (hero) ---------- */
+.hero {
+  background: linear-gradient(135deg, #020613 0%, #0b2a52 60%, #1957A1 100%);
+  color: #fff;
+  padding: 4.5rem 0;
+}
+.hero h1 { color: #fff; font-size: 2.4rem; line-height: 1.15; }
+.hero .lead { color: #d6e4f5; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--electrico);
+  margin-bottom: .6rem;
+}
+
+.chip {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, .4);
+  border-radius: 999px;
+  padding: .25rem .85rem;
+  font-size: .85rem;
+  margin: 0 .4rem .4rem 0;
+}
+
+.hero-img {
+  border-radius: .6rem;
+  border: 1px solid rgba(255, 255, 255, .2);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .45);
+}
+
+/* ---------- Encabezado de paginas internas ---------- */
+.page-header {
+  background: linear-gradient(135deg, #020613 0%, #0b2a52 100%);
+  color: #fff;
+  padding: 3rem 0;
+}
+.page-header h1 { color: #fff; margin-bottom: .4rem; }
+.page-header .lead { color: #d6e4f5; }
+
+/* ---------- Secciones ---------- */
+.section { padding: 4rem 0; }
+.section-alt { background: var(--claro); }
+
+.section-title { margin-bottom: .5rem; }
+.section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--electrico);
+  margin-top: .6rem;
+  border-radius: 2px;
+}
+.section-lead { color: var(--gris); margin-bottom: 2rem; max-width: 46rem; }
+
+/* ---------- Tarjetas de servicios ---------- */
+.card-servicio {
+  border: 1px solid var(--borde);
+  border-radius: .5rem;
+  height: 100%;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.card-servicio:hover {
+  border-color: var(--electrico);
+  box-shadow: 0 10px 24px rgba(25, 87, 161, .15);
+  transform: translateY(-3px);
+}
+.servicio-num {
+  font-weight: 700;
+  color: var(--electrico);
+  letter-spacing: 2px;
+  font-size: .85rem;
+  margin-bottom: .4rem;
+}
+.badge-top {
+  background: var(--corp);
+  color: #fff;
+  letter-spacing: 0;
+  font-size: .7rem;
+  vertical-align: middle;
+}
+.detalle .card-body { padding: 1.6rem; }
+
+/* ---------- Franja oscura ---------- */
+.band-dark { background: var(--noche); color: #d6e4f5; padding: 4rem 0; }
+.band-dark h2 { color: #fff; }
+.phone-img {
+  max-height: 440px;
+  border-radius: 1.4rem;
+  border: 4px solid #1a2438;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .5);
+}
+
+/* ---------- Pasos ---------- */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--corp);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ---------- Planes ---------- */
+.plan-card { border: 1px solid var(--borde); border-radius: .5rem; height: 100%; }
+.plan-card.destacado { border: 2px solid var(--electrico); }
+.plan-tag {
+  display: inline-block;
+  background: var(--claro);
+  color: var(--corp);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: .15rem .6rem;
+  border-radius: 999px;
+}
+.plan-list { padding-left: 1.1rem; margin-bottom: 1rem; }
+.plan-list li { margin-bottom: .3rem; }
+
+/* ---------- Tabla de garantias ---------- */
+.table-jags { background: #fff; border: 1px solid var(--borde); }
+.table-jags thead th { background: var(--corp); color: #fff; border: 0; }
+
+/* ---------- Galeria ---------- */
+.gallery-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .5rem;
+  border: 1px solid var(--borde);
+}
+.gallery-contain { object-fit: contain; background: var(--noche); }
+.gallery-fig { margin: 0; }
+.gallery-fig figcaption { color: var(--gris); font-size: .9rem; margin-top: .5rem; }
+
+/* ---------- Nosotros ---------- */
+.founder-img {
+  max-height: 420px;
+  border-radius: .6rem;
+  box-shadow: 0 14px 34px rgba(2, 6, 19, .25);
+}
+
+/* ---------- Preguntas frecuentes ---------- */
+.faq-card { border: 1px solid var(--borde); border-radius: .4rem; margin-bottom: .6rem; overflow: hidden; }
+.faq-card .card-header { background: #fff; padding: 0; border: 0; }
+.faq-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.2rem;
+  color: var(--noche);
+  font-weight: 700;
+  text-decoration: none;
+}
+.faq-btn:hover, .faq-btn:focus { color: var(--corp); text-decoration: none; }
+
+/* ---------- Franja de contacto ---------- */
+.cta-band {
+  background: linear-gradient(135deg, #1957A1 0%, #3190DD 100%);
+  color: #fff;
+  padding: 3.5rem 0;
+}
+.cta-band h2 { color: #fff; }
+
+/* ---------- Pie de pagina ---------- */
+.footer-jags { background: var(--noche); color: #c7d3e3; padding: 3rem 0 6rem; }
+.footer-jags a { color: #9cc7ee; text-decoration: none; }
+.footer-jags a:hover { color: #fff; text-decoration: underline; }
+.footer-jags li { margin-bottom: .35rem; }
+.footer-brand { font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: 3px; margin-bottom: .5rem; }
+.footer-brand span { color: var(--electrico); font-weight: 400; font-size: .8em; letter-spacing: 4px; }
+.footer-title { color: #fff; font-weight: 700; margin-bottom: .6rem; }
+.footer-hr { border-color: rgba(255, 255, 255, .15); }
+
+/* ---------- Boton flotante de WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1030;
+  display: flex;
+  align-items: center;
+  background: var(--corp);
+  color: #fff;
+  font-weight: 700;
+  padding: .7rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(2, 6, 19, .35);
+  text-decoration: none;
+}
+.wa-float:hover { background: var(--electrico); color: #fff; text-decoration: none; }
+.wa-float .wa-icon { margin-right: .5rem; }
+
+/* ---------- Formularios ---------- */
+
+.form-card { border: 1px solid var(--borde); border-radius: .5rem; }
+.form-card .card-body { padding: 1.8rem; }
+.form-who {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--electrico);
+  margin-bottom: .3rem;
+}
+.form-control { border-color: #b9c6d8; min-height: 46px; }
+.form-control:focus { border-color: var(--electrico); box-shadow: 0 0 0 .2rem rgba(49, 144, 221, .25); }
+textarea.form-control { min-height: 96px; }
+.req-star { color: var(--corp); font-weight: 700; }
+.auto-note {
+  background: var(--claro);
+  border-left: 4px solid var(--electrico);
+  padding: .65rem .9rem;
+  font-size: .85rem;
+  color: var(--gris);
+  border-radius: 0 .3rem .3rem 0;
+}
+.auto-note code, .form-card code { color: var(--corp); }
+.demo-alert { background: #e8f1fb; border-color: #bcd5ef; color: var(--noche); }
+
+
+/* Indice de formularios (enlaces ancla, sin JavaScript) */
+html { scroll-behavior: smooth; }
+.form-index .nav-link {
+  border: 1px solid var(--borde);
+  color: var(--corp);
+  font-weight: 600;
+  margin: 0 .4rem .4rem 0;
+  background: #fff;
+  border-radius: 999px;
+  padding: .35rem .9rem;
+  font-size: .9rem;
+}
+.form-index .nav-link:hover { background: var(--corp); border-color: var(--corp); color: #fff; }
+.form-section { margin-bottom: 1.75rem; scroll-margin-top: 90px; }
+.badge-tabla {
+  background: var(--claro);
+  color: var(--corp);
+  font-weight: 600;
+  font-size: .7rem;
+  vertical-align: middle;
+  margin-left: .4rem;
+  border: 1px solid var(--borde);
+}
+
+/* Natural / Corporativa: el cambio de campos se hace solo con CSS */
+.tipo-radio { position: absolute; opacity: 0; pointer-events: none; }
+.tipo-opcion {
+  display: inline-block;
+  border: 2px solid var(--borde);
+  border-radius: .4rem;
+  padding: .55rem 1rem;
+  margin: 0 .5rem .5rem 0;
+  font-weight: 600;
+  color: var(--corp);
+  cursor: pointer;
+  background: #fff;
+}
+#tc_natural:checked ~ .tipo-labels label[for="tc_natural"],
+#tc_corp:checked ~ .tipo-labels label[for="tc_corp"] {
+  background: var(--corp);
+  border-color: var(--corp);
+  color: #fff;
+}
+#tc_natural:focus ~ .tipo-labels label[for="tc_natural"],
+#tc_corp:focus ~ .tipo-labels label[for="tc_corp"] { outline: 3px solid var(--electrico); outline-offset: 2px; }
+#tc_corp:checked ~ .grupo-natural { display: none; }
+#tc_natural:checked ~ .grupo-corporativa { display: none; }
+
+/* ---------- Pantallas pequenas (la mayoria de clientes entra por celular) ---------- */
+@media (max-width: 575.98px) {
+  .navbar-jags .logo-crop { width: 180px; }
+  .hero { padding: 3rem 0; }
+  .hero h1 { font-size: 1.9rem; }
+  .section { padding: 3rem 0; }
+  .form-card .card-body { padding: 1.2rem; }
+  .wa-float span { display: none; }
+  .wa-float { padding: .85rem; }
+  .wa-float .wa-icon { margin-right: 0; }
+}
+
+@media (min-width: 768px) {
+  .hero h1 { font-size: 3rem; }
+}

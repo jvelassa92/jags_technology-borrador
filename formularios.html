@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Formularios para registrar clientes, solicitudes, cotizaciones, órdenes, ventas y garantías de Jags Technology.">
+  <meta name="theme-color" content="#020613">
+  <title>Formularios | Jags Technology</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-jags sticky-top">
+    <div class="container">
+      <a class="navbar-brand p-0" href="index.html" aria-label="Jags Technology, inicio"><span class="logo-box" role="img" aria-label="Jags Technology"></span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link active" href="formularios.html">Formularios</a></li>
+          <li class="nav-item ml-lg-3 mt-2 mt-lg-0"><a class="btn btn-jags btn-sm" href="formularios.html#solicitud">Solicitar servicio</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Formularios</h1>
+      <p class="lead mb-0">Cada formulario pide solo lo necesario: el resto se completa solo con las llaves foráneas de la base de datos.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="alert alert-info demo-alert" role="status">
+        <strong>Vista de diseño.</strong> Estos formularios aún no están conectados a la base de datos <code>jags_technology</code>. Los códigos (S001, AC001, C001…) siguen el formato de las tablas.
+      </div>
+      <p class="small text-muted mb-2">Ir a un formulario:</p>
+      <nav class="nav nav-pills form-index mb-4" aria-label="Índice de formularios"><a class="nav-link" href="#solicitud">Solicitud de servicio</a><a class="nav-link" href="#cliente">Registro de cliente</a><a class="nav-link" href="#cotizacion">Cotización</a><a class="nav-link" href="#orden">Orden de trabajo</a><a class="nav-link" href="#venta">Venta</a><a class="nav-link" href="#garantia">Garantía</a><a class="nav-link" href="#asesor">Asesor comercial</a><a class="nav-link" href="#tecnico">Técnico</a><a class="nav-link" href="#proveedor">Proveedor</a><a class="nav-link" href="#plan">Plan corporativo</a><a class="nav-link" href="#asignar">Asignar proveedor</a></nav>
+      <p class="small text-muted">Los campos con <span class="req-star">*</span> son obligatorios.</p>
+
+      <section class="form-section" id="solicitud">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Para clientes</p>
+            <h2 class="h4">Solicitud de servicio <span class="badge badge-tabla">Tabla: solicitud</span></h2>
+            <p class="text-muted">Es lo que le pides a Jags Technology. Solo necesitamos tu documento y lo que necesitas.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_cliente_sol">Documento del cliente <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_cliente_sol" name="id_cliente" type="text" class="form-control" required maxlength="15" pattern="[0-9]{6,15}" title="Entre 6 y 15 dígitos, solo números" placeholder="Tu cédula o NIT" inputmode="numeric">
+            <small class="form-text text-muted">Solo números (6 a 15 dígitos). Debe estar registrado.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="tipo_servicio">Servicio que necesitas <span class="req-star" aria-hidden="true">*</span></label>
+            <select id="tipo_servicio" name="tipo_servicio" class="form-control" required><option value="">Selecciona…</option><option value="Mantenimiento de computadores">Reparación y mantenimiento de computadores</option><option value="Sistemas de CCTV">Sistemas de CCTV (seguridad electrónica)</option><option value="Redes de datos">Redes de datos</option><option value="Control de acceso">Control de acceso</option><option value="Sistemas contra incendios">Sistemas contra incendios</option><option value="Desarrollo web">Desarrollo web</option><option value="Recuperacion de datos">Recuperación de datos</option><option value="Soporte especializado">Mantenimiento preventivo y soporte especializado</option></select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ciudad_servicio">Ciudad donde se presta el servicio <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="ciudad_servicio" name="ciudad_servicio" type="text" class="form-control" required maxlength="50">
+          </div>
+          <div class="form-group col-12">
+            <label for="mensaje">Cuéntanos qué necesitas <span class="req-star" aria-hidden="true">*</span></label>
+            <textarea id="mensaje" name="mensaje" class="form-control" rows="3" maxlength="300" required placeholder="Describe brevemente tu necesidad"></textarea>
+            <small class="form-text text-muted">Máximo 300 caracteres.</small>
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_solicitud</code> (S001, S002…), <code>estado</code> (Pendiente), <code>fecha_creacion</code> (fecha y hora actual), <code>id_proveedor</code> (lo asigna el equipo).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="cliente">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Para clientes</p>
+            <h2 class="h4">Registro de cliente <span class="badge badge-tabla">Tabla: cliente</span></h2>
+            <p class="text-muted">Regístrate una sola vez. Con tu documento harás todas tus solicitudes.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+              <input type="radio" id="tc_natural" name="tipo_cliente" value="Natural" class="tipo-radio" checked>
+              <input type="radio" id="tc_corp" name="tipo_cliente" value="Corporativa" class="tipo-radio">
+              <div class="form-group col-12 tipo-labels">
+                <span class="d-block mb-2">Tipo de cliente <span class="req-star" aria-hidden="true">*</span></span>
+                <label for="tc_natural" class="tipo-opcion">Natural (persona)</label>
+                <label for="tc_corp" class="tipo-opcion">Corporativa (empresa)</label>
+              </div>
+          <div class="form-group col-12">
+            <label for="id_cliente">Documento (cédula o NIT) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_cliente" name="id_cliente" type="text" class="form-control" required maxlength="15" pattern="[0-9]{6,15}" title="Entre 6 y 15 dígitos, solo números" placeholder="Solo números" inputmode="numeric">
+            <small class="form-text text-muted">Es tu identificador en el sistema: de 6 a 15 dígitos.</small>
+          </div>
+          <div class="col-12 grupo-natural"><div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres">Nombres</label>
+            <input id="nombres" name="nombres" type="text" class="form-control" maxlength="50">
+            <small class="form-text text-muted">Obligatorio para clientes Natural.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="apellidos">Apellidos</label>
+            <input id="apellidos" name="apellidos" type="text" class="form-control" maxlength="50">
+            <small class="form-text text-muted">Obligatorio para clientes Natural.</small>
+          </div>
+          </div></div>
+          <div class="col-12 grupo-corporativa"><div class="form-row">
+          <div class="form-group col-12">
+            <label for="razon_social">Razón social</label>
+            <input id="razon_social" name="razon_social" type="text" class="form-control" maxlength="100">
+            <small class="form-text text-muted">Obligatorio para clientes Corporativa.</small>
+          </div>
+          </div></div>
+          <div class="form-group col-md-6">
+            <label for="correo">Correo electrónico <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="correo" name="correo" type="email" class="form-control" required maxlength="100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" class="form-control" maxlength="15" placeholder="3001234567" inputmode="tel">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ciudad">Ciudad</label>
+            <input id="ciudad" name="ciudad" type="text" class="form-control" maxlength="50">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="direccion">Dirección</label>
+            <input id="direccion" name="direccion" type="text" class="form-control" maxlength="100">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>fecha_registro</code> (fecha de hoy).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="cotizacion">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Asesor comercial</p>
+            <h2 class="h4">Cotización <span class="badge badge-tabla">Tabla: cotizacion</span></h2>
+            <p class="text-muted">La elabora un asesor comercial a partir de una solicitud.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_solicitud">Código de la solicitud <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_solicitud" name="id_solicitud" type="text" class="form-control" required maxlength="4" pattern="S[0-9]{3}" title="Formato S001" placeholder="S001">
+            <small class="form-text text-muted">Código con formato S001. El cliente se toma de la solicitud.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="id_asesor">Código del asesor comercial <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_asesor" name="id_asesor" type="text" class="form-control" required maxlength="5" pattern="AC[0-9]{3}" title="Formato AC001" placeholder="AC001">
+            <small class="form-text text-muted">Código con formato AC001.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="id_plan">Código del plan corporativo</label>
+            <input id="id_plan" name="id_plan" type="text" class="form-control" maxlength="5" pattern="PC[0-9]{3}" title="Formato PC001" placeholder="PC001">
+            <small class="form-text text-muted">Solo clientes corporativos (PC001 Avanzado, PC002 Premium). Déjalo vacío si el cliente es Natural.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="valor_cop">Valor (COP) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="valor_cop" name="valor_cop" type="number" class="form-control" required placeholder="1500000" inputmode="numeric" min="1" step="1000">
+          </div>
+          <div class="form-group col-12">
+            <label for="detalle">Detalle de lo incluido <span class="req-star" aria-hidden="true">*</span></label>
+            <textarea id="detalle" name="detalle" class="form-control" rows="3" maxlength="300" required placeholder=""></textarea>
+            <small class="form-text text-muted">Máximo 300 caracteres.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="fecha_vigencia">Vigencia de la oferta (hasta) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="fecha_vigencia" name="fecha_vigencia" type="date" class="form-control" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="meses_pactados">Meses pactados</label>
+            <input id="meses_pactados" name="meses_pactados" type="number" class="form-control" inputmode="numeric" min="1" max="60">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_cotizacion</code> (C001, C002…), <code>estado</code> (Emitida), <code>fecha_emision</code> (fecha de hoy).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="orden">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Coordinación</p>
+            <h2 class="h4">Orden de trabajo <span class="badge badge-tabla">Tabla: orden_trabajo</span></h2>
+            <p class="text-muted">Se crea cuando una cotización es aprobada. Menciona al cliente, al técnico y la descripción.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_cotizacion">Código de la cotización aprobada <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_cotizacion" name="id_cotizacion" type="text" class="form-control" required maxlength="4" pattern="C[0-9]{3}" title="Formato C001" placeholder="C001">
+            <small class="form-text text-muted">Código con formato C001. El cliente se toma de la cotización.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="id_tecnico">Código del técnico responsable <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_tecnico" name="id_tecnico" type="text" class="form-control" required maxlength="4" pattern="T[0-9]{3}" title="Formato T001" placeholder="T001">
+            <small class="form-text text-muted">Código con formato T001.</small>
+          </div>
+          <div class="form-group col-12">
+            <label for="descripcion">Descripción del trabajo y equipos <span class="req-star" aria-hidden="true">*</span></label>
+            <textarea id="descripcion" name="descripcion" class="form-control" rows="3" maxlength="300" required placeholder="Qué se va a hacer y qué equipos se atienden (tipo, marca, modelo, serial)"></textarea>
+            <small class="form-text text-muted">Máximo 300 caracteres.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="fecha_inicio">Fecha de inicio</label>
+            <input id="fecha_inicio" name="fecha_inicio" type="date" class="form-control">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_orden</code> (OT001, OT002…), <code>id_cliente</code> (del cliente de la cotización), <code>estado</code> (Programada).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="venta">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Ventas</p>
+            <h2 class="h4">Venta <span class="badge badge-tabla">Tabla: venta</span></h2>
+            <p class="text-muted">Se registra al finalizar el trabajo.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_cotizacion_v">Código de la cotización <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_cotizacion_v" name="id_cotizacion" type="text" class="form-control" required maxlength="4" pattern="C[0-9]{3}" title="Formato C001" placeholder="C001">
+            <small class="form-text text-muted">Código con formato C001.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="valor_total">Valor total del trabajo (COP) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="valor_total" name="valor_total" type="number" class="form-control" required inputmode="numeric" min="1" step="1000">
+          </div>
+          <div class="form-group col-12">
+            <label for="descripcion_v">Descripción del trabajo entregado <span class="req-star" aria-hidden="true">*</span></label>
+            <textarea id="descripcion_v" name="descripcion" class="form-control" rows="3" maxlength="300" required placeholder=""></textarea>
+            <small class="form-text text-muted">Máximo 300 caracteres.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="fecha_finalizacion">Fecha en que finalizó la actividad <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="fecha_finalizacion" name="fecha_finalizacion" type="date" class="form-control" required>
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_venta</code> (V001, V002…).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="garantia">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Postventa</p>
+            <h2 class="h4">Garantía <span class="badge badge-tabla">Tabla: garantia</span></h2>
+            <p class="text-muted">Cada venta tiene como máximo una garantía.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_venta">Código de la venta <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_venta" name="id_venta" type="text" class="form-control" required maxlength="4" pattern="V[0-9]{3}" title="Formato V001" placeholder="V001">
+            <small class="form-text text-muted">Código con formato V001. El asesor y el técnico se toman de la venta.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="meses_garantia">Tiempo de garantía (meses) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="meses_garantia" name="meses_garantia" type="number" class="form-control" required inputmode="numeric" min="1" max="60">
+          </div>
+          <div class="form-group col-12">
+            <label for="condicion">Condiciones y exclusiones</label>
+            <textarea id="condicion" name="condicion" class="form-control" rows="3" maxlength="150" placeholder=""></textarea>
+            <small class="form-text text-muted">Máximo 150 caracteres.</small>
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_garantia</code> (G001, G002…), <code>id_asesor</code> (del asesor de la cotización), <code>id_tecnico</code> (del técnico de la orden), <code>fecha_vencimiento</code> (fecha de finalización + meses).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="asesor">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Administración</p>
+            <h2 class="h4">Asesor comercial <span class="badge badge-tabla">Tabla: asesor_comercial</span></h2>
+            <p class="text-muted">Empleados del área de ventas.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres_a">Nombres <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="nombres_a" name="nombres" type="text" class="form-control" required maxlength="50">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="apellidos_a">Apellidos <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="apellidos_a" name="apellidos" type="text" class="form-control" required maxlength="50">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="correo_a">Correo <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="correo_a" name="correo" type="email" class="form-control" required maxlength="100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="telefono_a">Teléfono</label>
+            <input id="telefono_a" name="telefono" type="tel" class="form-control" maxlength="15" inputmode="tel">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_asesor</code> (AC001, AC002…), <code>activo</code> (Sí).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="tecnico">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Administración</p>
+            <h2 class="h4">Técnico <span class="badge badge-tabla">Tabla: tecnico</span></h2>
+            <p class="text-muted">Empleados de soporte.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombres_t">Nombres <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="nombres_t" name="nombres" type="text" class="form-control" required maxlength="50">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="apellidos_t">Apellidos <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="apellidos_t" name="apellidos" type="text" class="form-control" required maxlength="50">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="correo_t">Correo <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="correo_t" name="correo" type="email" class="form-control" required maxlength="100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="telefono_t">Teléfono</label>
+            <input id="telefono_t" name="telefono" type="tel" class="form-control" maxlength="15" inputmode="tel">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="especialidad">Especialidad <span class="req-star" aria-hidden="true">*</span></label>
+            <select id="especialidad" name="especialidad" class="form-control" required><option value="">Selecciona…</option><option value="Computadores">Computadores</option><option value="CCTV y seguridad electronica">CCTV y seguridad electrónica</option><option value="Redes de datos">Redes de datos</option><option value="Control de acceso">Control de acceso</option><option value="Sistemas contra incendios">Sistemas contra incendios</option><option value="Desarrollo web">Desarrollo web</option><option value="Recuperacion de datos">Recuperación de datos</option><option value="Soporte especializado">Soporte especializado</option></select>
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_tecnico</code> (T001, T002…), <code>activo</code> (Sí).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="proveedor">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Compras</p>
+            <h2 class="h4">Proveedor <span class="badge badge-tabla">Tabla: proveedor</span></h2>
+            <p class="text-muted">Empresas que suministran equipos o materiales.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nit">NIT <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="nit" name="nit" type="text" class="form-control" required maxlength="15" pattern="[0-9]{9,15}" title="Entre 9 y 15 dígitos, solo números" placeholder="Solo números" inputmode="numeric">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="razon_social_p">Razón social <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="razon_social_p" name="razon_social" type="text" class="form-control" required maxlength="100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="contacto">Persona de contacto</label>
+            <input id="contacto" name="contacto" type="text" class="form-control" maxlength="80">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="correo_p">Correo</label>
+            <input id="correo_p" name="correo" type="email" class="form-control" maxlength="100">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="telefono_p">Teléfono</label>
+            <input id="telefono_p" name="telefono" type="tel" class="form-control" maxlength="15" inputmode="tel">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ciudad_p">Ciudad</label>
+            <input id="ciudad_p" name="ciudad" type="text" class="form-control" maxlength="50">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_proveedor</code> (PV001, PV002…), <code>activo</code> (Sí).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="plan">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Administración</p>
+            <h2 class="h4">Plan corporativo <span class="badge badge-tabla">Tabla: plan_corporativo</span></h2>
+            <p class="text-muted">Solo existen dos planes: Avanzado y Premium. Se usan únicamente con clientes corporativos.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombre">Nombre del plan <span class="req-star" aria-hidden="true">*</span></label>
+            <select id="nombre" name="nombre" class="form-control" required><option value="">Selecciona…</option><option value="Avanzado">Avanzado</option><option value="Premium">Premium</option></select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="modalidad">Modalidad <span class="req-star" aria-hidden="true">*</span></label>
+            <select id="modalidad" name="modalidad" class="form-control" required><option value="">Selecciona…</option><option value="Presencial">Presencial</option><option value="Remota">Remota</option><option value="Mixta">Mixta</option></select>
+          </div>
+          <div class="form-group col-12">
+            <label for="descripcion_pl">Descripción <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="descripcion_pl" name="descripcion" type="text" class="form-control" required maxlength="150">
+          </div>
+          <div class="form-group col-12">
+            <label for="alcance">Alcance</label>
+            <input id="alcance" name="alcance" type="text" class="form-control" maxlength="200" placeholder="Equipos o puntos, visitas y horario de soporte">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="garantia_meses">Garantía del plan (meses) <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="garantia_meses" name="garantia_meses" type="number" class="form-control" required inputmode="numeric" min="1" max="60">
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_plan</code> (PC001, PC002), <code>activo</code> (Sí).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section" id="asignar">
+        <div class="card form-card">
+          <div class="card-body">
+            <p class="form-who">Equipo Jags · Compras</p>
+            <h2 class="h4">Asignar proveedor a una solicitud <span class="badge badge-tabla">Tabla: solicitud (actualiza id_proveedor)</span></h2>
+            <p class="text-muted">Cuando el trabajo requiere equipos o materiales, se asigna un proveedor a la solicitud.</p>
+            <form action="#" method="post">
+              <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="id_solicitud_ap">Código de la solicitud <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_solicitud_ap" name="id_solicitud" type="text" class="form-control" required maxlength="4" pattern="S[0-9]{3}" title="Formato S001" placeholder="S001">
+            <small class="form-text text-muted">Código con formato S001.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="id_proveedor">Código del proveedor <span class="req-star" aria-hidden="true">*</span></label>
+            <input id="id_proveedor" name="id_proveedor" type="text" class="form-control" required maxlength="5" pattern="PV[0-9]{3}" title="Formato PV001" placeholder="PV001">
+            <small class="form-text text-muted">Código con formato PV001. Un solo proveedor por solicitud.</small>
+          </div>
+              </div>
+              <div class="auto-note"><strong>Se completa solo:</strong> <code>id_proveedor</code> (se guarda en la solicitud).</div>
+              <button type="submit" class="btn btn-jags mt-3">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <footer class="footer-jags">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mb-4">
+          <span class="logo-footer logo-box" role="img" aria-label="Jags Technology"></span>
+          <p class="mb-2">Soporte y servicio técnico en infraestructura tecnológica y seguridad electrónica. Desde 2014.</p>
+          <p class="small mb-0">Atención a domicilio y soporte remoto. No contamos con sede abierta al público.</p>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <p class="footer-title">Páginas</p>
+          <ul class="list-unstyled mb-0">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="formularios.html">Formularios</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4 mb-4">
+          <p class="footer-title">Contacto</p>
+          <ul class="list-unstyled mb-0">
+            <li><a href="https://wa.me/573000000000?text=Hola%20Jags%20Technology%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="formularios.html#solicitud">Solicitar un servicio</a></li>
+            <li><a href="index.html#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-hr">
+      <p class="small mb-0">&copy; 2026 Jags Technology. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/573000000000?text=Hola%20Jags%20Technology%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="wa-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg><span>WhatsApp</span></a>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
